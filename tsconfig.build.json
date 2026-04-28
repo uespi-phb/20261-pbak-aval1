@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./build",
+    "noEmit": false,
+    "incremental": true,
+    "tsBuildInfoFile": "./.cache/tsconfig.build.tsbuildinfo",
+    "noEmitOnError": true,
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+  "exclude": ["build", "coverage", "node_modules", "test"]
+}

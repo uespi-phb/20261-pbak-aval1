@@ -1,0 +1,37 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "js/ts.preferences.preferTypeOnlyAutoImports": true,
+  "js/ts.preferences.quoteStyle": "single",
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "js/ts.tsdk.enablePromptUseWorkspaceTsdk": true,
+  "eslint.run": "onType",
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/coverage": true,
+    "**/build": true,
+    "**/node_modules": true,
+    "**/.eslintcache": true
+  },
+  "search.exclude": {
+    "**/coverage": true,
+    "**/build": true,
+    "**/node_modules": true,
+    "**/.eslintcache": true
+  },
+  "github.copilot.enable": {
+    "*": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "github.copilot.editor.enableCodeActions": false,
+  "settingsSync.ignoredExtensions": ["GitHub.copilot", "GitHub.copilot-chat"]
+}
