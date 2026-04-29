@@ -70,11 +70,11 @@ Não devem ser implementados:
 
 O caso de uso deve receber:
 
-| Campo | Tipo | Obrigatório | Descrição |
-|---|---|---:|---|
-| `name` | `string` | Sim | Nome completo do estudante |
-| `email` | `string` | Sim | E-mail institucional ou pessoal |
-| `registrationNumber` | `string` | Sim | Número de matrícula do estudante |
+| Campo                | Tipo     | Obrigatório | Descrição                        |
+| -------------------- | -------- | ----------: | -------------------------------- |
+| `name`               | `string` |         Sim | Nome completo do estudante       |
+| `email`              | `string` |         Sim | E-mail institucional ou pessoal  |
+| `registrationNumber` | `string` |         Sim | Número de matrícula do estudante |
 
 ---
 
@@ -82,13 +82,13 @@ O caso de uso deve receber:
 
 Em caso de sucesso, o caso de uso deve retornar:
 
-| Campo | Tipo | Descrição |
-|---|---|---|
-| `id` | `string` | Identificador do estudante criado |
-| `name` | `string` | Nome do estudante |
-| `email` | `string` | E-mail do estudante |
-| `registrationNumber` | `string` | Matrícula do estudante |
-| `status` | `string` | Deve ser `active` |
+| Campo                | Tipo     | Descrição                         |
+| -------------------- | -------- | --------------------------------- |
+| `id`                 | `string` | Identificador do estudante criado |
+| `name`               | `string` | Nome do estudante                 |
+| `email`              | `string` | E-mail do estudante               |
+| `registrationNumber` | `string` | Matrícula do estudante            |
+| `status`             | `string` | Deve ser `active`                 |
 
 ---
 

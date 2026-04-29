@@ -333,4 +333,3 @@ Deve verificar se a entidade mantém seus dados em estado consistente após a cr
 
 **`should preserve identity once created`**
 Deve garantir que a identidade do estudante, uma vez criada, seja preservada corretamente pela entidade.
-

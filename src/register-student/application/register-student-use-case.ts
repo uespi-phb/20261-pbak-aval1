@@ -1,7 +1,10 @@
 import type { GenerateId } from '#src/register-student/application/generate-id'
 import type { LoadStudentByEmail } from '#src/register-student/application/load-student-by-email'
 import type { LoadStudentByRegistrationNumber } from '#src/register-student/application/load-student-by-registration-number'
-import type { RegisterStudentInput, RegisterStudentOutput } from '#src/register-student/application/register-student-dtos'
+import type {
+  RegisterStudentInput,
+  RegisterStudentOutput,
+} from '#src/register-student/application/register-student-dtos'
 import type { SaveStudent } from '#src/register-student/application/save-student'
 import { Email } from '#src/register-student/domain/email'
 import { Name } from '#src/register-student/domain/name'
