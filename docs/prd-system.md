@@ -70,11 +70,11 @@ Não devem ser implementados:
 
 O caso de uso deve receber:
 
-| Campo                | Tipo     | Obrigatório | Descrição                        |
-|----------------------|----------|-------------|----------------------------------|
-| `name`               | `string` | Sim         | Nome completo do estudante       |
-| `email`              | `string` | Sim         | E-mail institucional ou pessoal  |
-| `registrationNumber` | `string` | Sim         | Número de matrícula do estudante |
+| Campo | Tipo | Obrigatório | Descrição |
+|---|---|---:|---|
+| `name` | `string` | Sim | Nome completo do estudante |
+| `email` | `string` | Sim | E-mail institucional ou pessoal |
+| `registrationNumber` | `string` | Sim | Número de matrícula do estudante |
 
 ---
 
@@ -98,11 +98,30 @@ Em caso de sucesso, o caso de uso deve retornar:
 
 O nome do estudante deve ser informado.
 
-Um nome vazio, composto apenas por espaços ou ausente deve ser rejeitado.
+Um nome ausente, vazio ou composto apenas por espaços deve ser rejeitado.
 
-### RN02 - Nome mínimo
+O objeto `Name` pode aplicar `trim` na string de entrada antes das validações.
 
-O nome deve possuir pelo menos 3 caracteres úteis.
+### RN02 - Nome válido
+
+Após a normalização com `trim`, o nome do estudante deve:
+
+- possuir pelo menos 2 palavras
+- possuir comprimento mínimo de 5 caracteres
+- não conter espaços adicionais entre as palavras
+
+Exemplos válidos:
+
+- `Ana Maria`
+- `João Silva`
+- `Luis Alberto`
+
+Exemplos inválidos:
+
+- `Ana`
+- `A B`
+- `João  Silva`
+- `   `
 
 ### RN03 - E-mail obrigatório
 
@@ -126,19 +145,31 @@ Exemplos inválidos:
 
 A matrícula deve ser informada.
 
-### RN06 - Formato da matrícula
+Um valor ausente, vazio ou composto apenas por espaços deve ser rejeitado.
 
-A matrícula deve conter exatamente 8 dígitos numéricos.
+O objeto `RegistrationNumber` pode aplicar `trim` na string de entrada antes das validações.
 
-Exemplo válido:
+### RN06 - Matrícula válida
 
-- `20260001`
+Após a normalização com `trim`, a matrícula deve:
+
+- ser composta apenas por dígitos numéricos
+- possuir 7 ou 10 dígitos
+- não conter espaços
+
+Exemplos válidos:
+
+- `1234567`
+- `2026000001`
 
 Exemplos inválidos:
 
-- `ABC12345`
-- `20261`
-- `202600001`
+- `ABC1234`
+- `123 4567`
+- `123456`
+- `12345678`
+- `123456789`
+- `12345678901`
 
 ### RN07 - E-mail único
 
@@ -157,14 +188,16 @@ Todo estudante criado deve iniciar com status `active`.
 ## 8. Fluxo principal
 
 1. O caso de uso recebe `name`, `email` e `registrationNumber`.
-2. O sistema valida os dados obrigatórios.
-3. O sistema valida o formato do e-mail.
-4. O sistema valida o formato da matrícula.
-5. O sistema verifica se já existe estudante com o mesmo e-mail.
-6. O sistema verifica se já existe estudante com a mesma matrícula.
-7. O sistema cria um novo estudante com status `active`.
-8. O sistema persiste o estudante.
-9. O sistema retorna os dados do estudante criado.
+2. O sistema normaliza `name` e `registrationNumber` com `trim`, quando aplicável.
+3. O sistema valida os dados obrigatórios.
+4. O sistema valida o formato do nome.
+5. O sistema valida o formato do e-mail.
+6. O sistema valida o formato da matrícula.
+7. O sistema verifica se já existe estudante com o mesmo e-mail.
+8. O sistema verifica se já existe estudante com a mesma matrícula.
+9. O sistema cria um novo estudante com status `active`.
+10. O sistema persiste o estudante.
+11. O sistema retorna os dados do estudante criado.
 
 ---
 
@@ -174,6 +207,13 @@ Todo estudante criado deve iniciar com status `active`.
 
 Se o nome for inválido, o caso de uso deve lançar erro de nome inválido.
 
+Deve ser considerado inválido, entre outros casos, quando:
+
+- estiver vazio após `trim`
+- possuir menos de 2 palavras
+- possuir menos de 5 caracteres
+- contiver espaços adicionais entre as palavras
+
 ### FE02 - E-mail inválido
 
 Se o e-mail for inválido, o caso de uso deve lançar erro de e-mail inválido.
@@ -181,6 +221,13 @@ Se o e-mail for inválido, o caso de uso deve lançar erro de e-mail inválido.
 ### FE03 - Matrícula inválida
 
 Se a matrícula for inválida, o caso de uso deve lançar erro de matrícula inválida.
+
+Deve ser considerada inválida, entre outros casos, quando:
+
+- estiver vazia após `trim`
+- contiver caracteres não numéricos
+- contiver espaços
+- não possuir 7 nem 10 dígitos
 
 ### FE04 - E-mail já cadastrado
 
