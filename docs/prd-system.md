@@ -256,12 +256,66 @@ A implementação deve:
 
 ## 11. Abstração esperada de repositório
 
-O caso de uso deve depender de uma abstração equivalente a:
+O caso de uso deve depender das interfaces declaradas na camada de aplicação.
 
 ```ts
-interface StudentRepository {
-  findByEmail(email: string): Promise<Student | null>
-  findByRegistrationNumber(registrationNumber: string): Promise<Student | null>
-  save(student: Student): Promise<void>
+// src/register-student/application/load-student-by-email.ts
+import type { Email } from '#src/register-student/domain/email'
+import type { Student } from '#src/register-student/domain/student'
+
+export interface LoadStudentByEmail {
+  loadByEmail: (email: Email) => Promise<Student | null>
+}
+```
+
+```ts
+// src/register-student/application/load-student-by-registration-number.ts
+import type { RegistrationNumber } from '#src/register-student/domain/registration-number'
+import type { Student } from '#src/register-student/domain/student'
+
+export interface LoadStudentByRegistrationNumber {
+  loadByRegistrationNumber: (registrationNumber: RegistrationNumber) => Promise<Student | null>
+}
+```
+
+```ts
+// src/register-student/application/save-student.ts
+import type { Student } from '#src/register-student/domain/student'
+
+export interface SaveStudent {
+  save: (student: Student) => Promise<void>
+}
+```
+
+```ts
+// src/register-student/application/generate-id.ts
+export interface GenerateId {
+  generate: () => string
+}
+```
+
+```ts
+// src/register-student/application/register-student-dtos.ts
+import type { StudentStatus } from '#src/register-student/domain/student'
+
+export interface RegisterStudentInput {
+  name: string
+  email: string
+  registrationNumber: string
+}
+
+export interface RegisterStudentOutput {
+  id: string
+  name: string
+  email: string
+  registrationNumber: string
+  status: StudentStatus
+}
+```
+
+```ts
+// src/usecase.ts
+export interface UseCase<Input, Output> {
+  execute: (input: Input) => Promise<Output>
 }
 ```
