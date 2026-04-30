@@ -9,6 +9,7 @@ import type { LoadStudentByRegistrationNumber } from '#src/register-student/appl
 import type { RegisterStudentInput } from '#src/register-student/application/register-student-dtos'
 import { RegisterStudentUseCase } from '#src/register-student/application/register-student-use-case'
 import type { SaveStudent } from '#src/register-student/application/save-student'
+import { InvalidNameError } from '#src/register-student/domain/name'
 
 describe('RegisterStudentUseCase', () => {
   let loadStudentByEmail: MockProxy<LoadStudentByEmail>
@@ -41,5 +42,23 @@ describe('RegisterStudentUseCase', () => {
     }
 
     await expect(useCase.execute(input)).rejects.toThrow(Error)
+  })
+
+  //1.3
+  test('should throw when name input is invalid', async () => {
+    const useCase = new RegisterStudentUseCase(
+      loadStudentByEmail,
+      loadStudentByRegistrationNumber,
+      saveStudent,
+      generateId,
+    )
+
+    const input: RegisterStudentInput = {
+      name: 'Ana',
+      email: 'eyderrios@email.com',
+      registrationNumber: '1234567',
+    }
+
+    await expect(useCase.execute(input)).rejects.toThrow(InvalidNameError)
   })
 })
