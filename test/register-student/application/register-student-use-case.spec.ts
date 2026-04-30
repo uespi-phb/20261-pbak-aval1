@@ -4,7 +4,10 @@ import type { GenerateId } from '#src/register-student/application/generate-id'
 import type { LoadStudentByEmail } from '#src/register-student/application/load-student-by-email'
 import type { LoadStudentByRegistrationNumber } from '#src/register-student/application/load-student-by-registration-number'
 import type { RegisterStudentInput } from '#src/register-student/application/register-student-dtos'
-import { RegisterStudentUseCase } from '#src/register-student/application/register-student-use-case'
+import {
+  DuplicatedEmailError,
+  RegisterStudentUseCase,
+} from '#src/register-student/application/register-student-use-case'
 import type { SaveStudent } from '#src/register-student/application/save-student'
 import { Email } from '#src/register-student/domain/email'
 import { Name } from '#src/register-student/domain/name'
@@ -56,5 +59,11 @@ describe('RegisterStudentUseCase', () => {
     await sut.execute(input)
 
     expect(loadStudentByemail.loadByEmail).toHaveBeenCalledWith(student.email)
+  })
+
+  it('Should throw when email already exists', async () => {
+    const promise = sut.execute(input)
+
+    await expect(promise).rejects.toThrow(new DuplicatedEmailError())
   })
 })
