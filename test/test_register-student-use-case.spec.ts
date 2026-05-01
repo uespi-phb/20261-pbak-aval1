@@ -1,17 +1,16 @@
-import { describe, test, beforeAll } from 'vitest'
+import { describe, test, beforeAll, expect } from 'vitest'
 import { mock } from 'vitest-mock-extended'
 import type { MockProxy } from 'vitest-mock-extended'
 
+import type { GenerateId } from '#src/register-student/application/generate-id'
 import type { LoadStudentByEmail } from '#src/register-student/application/load-student-by-email'
 import type { LoadStudentByRegistrationNumber } from '#src/register-student/application/load-student-by-registration-number'
-import type { SaveStudent } from '#src/register-student/application/save-student'
-import type { GenerateId } from '#src/register-student/application/generate-id'
 import type {
   RegisterStudentInput,
   RegisterStudentOutput,
 } from '#src/register-student/application/register-student-dtos'
-
 import { RegisterStudentUseCase } from '#src/register-student/application/register-student-use-case'
+import type { SaveStudent } from '#src/register-student/application/save-student'
 import { RegistrationNumber } from '#src/register-student/domain/registration-number'
 
 describe('Unit Tests for RegisterStudentUseCase', () => {
