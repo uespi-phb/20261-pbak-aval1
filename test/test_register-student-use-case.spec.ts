@@ -2,7 +2,6 @@ import { describe, test, beforeAll } from 'vitest'
 import { mock } from 'vitest-mock-extended'
 import type { MockProxy } from 'vitest-mock-extended'
 
-import { RegisterStudentUseCase } from '#src/register-student/application/register-student-use-case'
 import type { LoadStudentByEmail } from '#src/register-student/application/load-student-by-email'
 import type { LoadStudentByRegistrationNumber } from '#src/register-student/application/load-student-by-registration-number'
 import type { SaveStudent } from '#src/register-student/application/save-student'
@@ -11,7 +10,9 @@ import type {
   RegisterStudentInput,
   RegisterStudentOutput,
 } from '#src/register-student/application/register-student-dtos'
-import { RegistrationNumber } from '#src/register-student/domain/registration-number'
+
+import { RegisterStudentUseCase } from '#src/register-student/application/register-student-use-case'
+import { RegistrationNumber } from '#src/register-student/domain/registration-number'   
 
 describe('Unit Tests for RegisterStudentUseCase', () => {
   let input: RegisterStudentInput
