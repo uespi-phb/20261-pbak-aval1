@@ -19,16 +19,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
 
-      - name: Enable Corepack
-        run: corepack enable
+      - name: Enable and Prepare Yarn
+        run: |
+          corepack enable
+          corepack prepare yarn@4.13.0 --activate
       
-      - name: Prepare Yarn (force current version)
-        run: corepack prepare --all
-
       - name: Install dependencies
-        run: yarn install --immutable
+        run: corepack yarn install --immutable
 
       - name: Run CI checks
         run: yarn check:ci
