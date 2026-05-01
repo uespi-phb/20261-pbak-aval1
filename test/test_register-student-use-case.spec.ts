@@ -12,7 +12,7 @@ import type {
 } from '#src/register-student/application/register-student-dtos'
 
 import { RegisterStudentUseCase } from '#src/register-student/application/register-student-use-case'
-import { RegistrationNumber } from '#src/register-student/domain/registration-number'
+import { RegistrationNumber } from '#src/register-student/domain/registration-number'   
 
 describe('Unit Tests for RegisterStudentUseCase', () => {
   let input: RegisterStudentInput
