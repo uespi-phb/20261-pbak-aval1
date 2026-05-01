@@ -6,9 +6,9 @@ Um **Pull Request (PR)** é uma solicitação para que alterações feitas em um
 
 Em termos simples:
 
-* o time faz o trabalho em uma branch própria
-* envia essa branch para o GitHub
-* abre um PR pedindo a integração na `main`
+- o time faz o trabalho em uma branch própria
+- envia essa branch para o GitHub
+- abre um PR pedindo a integração na `main`
 
 ## Fluxo recomendado
 
@@ -58,13 +58,12 @@ git push -u origin tests/teamXX
 
 Depois do push:
 
-* acesse o repositório no GitHub
-* clique em **Compare & pull request**
+- acesse o repositório no GitHub
+- clique em **Compare & pull request**
   ou vá em **Pull requests > New pull request**
-* confira se:
-
-  * a **base** é `main`
-  * a **compare** é a branch do time
+- confira se:
+  - a **base** é `main`
+  - a **compare** é a branch do time
 
 ## 8. Preencher o PR
 
@@ -80,6 +79,7 @@ Exemplo:
 Implemented the test cases assigned to Team 05.
 
 Included:
+
 - success scenarios
 - validation scenarios
 - dependency interaction tests
@@ -89,10 +89,10 @@ Included:
 
 Antes de clicar em **Create pull request**, verifique:
 
-* se a branch de destino é `main`
-* se só há alterações do escopo da atividade
-* se o código está correto
-* se o título e a descrição estão claros
+- se a branch de destino é `main`
+- se só há alterações do escopo da atividade
+- se o código está correto
+- se o título e a descrição estão claros
 
 ## Resumo final
 

@@ -5,11 +5,9 @@
   <h4 style="margin:0; line-height:1.25"><strong>Professor:</strong> Eyder Rios</p>
 </div>
 
-
 <h4 style="text-align: center; margin-bottom: 2rem">
 1ª AVALIAÇÃO
 </h4>
-
 
 Esta avaliação prática tem por objetivo verificar a capacidade da equipe de compreender, analisar e implementar testes automatizados para a camada de aplicação e para objetos de domínio, com base em um caso de uso estruturado segundo princípios de organização arquitetural, separação de responsabilidades e testabilidade.
 
@@ -93,10 +91,10 @@ Se a equipe já tiver escrito código na `main`, deverá:
 
 1. salvar localmente o conteúdo produzido (arquivos fonte)
 2. remover ou renomear o repositório local
-2. clonar novamente o repositório ou restaurar o estado adequado
-3. criar a branch correta
-4. copiar novamente o conteúdo salvo (código fonte)
-5. seguir o fluxo normal de commit, push e Pull Request
+3. clonar novamente o repositório ou restaurar o estado adequado
+4. criar a branch correta
+5. copiar novamente o conteúdo salvo (código fonte)
+6. seguir o fluxo normal de commit, push e Pull Request
 
 Um tutorial sobre Pull Request estará disponível no repositório, no diretório `./docs/github-pr.pdf`.
 
