@@ -23,6 +23,9 @@ jobs:
 
       - name: Enable Corepack
         run: corepack enable
+      
+      - name: Prepare Yarn (force current version)
+        run: corepack prepare --all
 
       - name: Install dependencies
         run: yarn install --immutable
