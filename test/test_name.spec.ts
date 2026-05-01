@@ -1,4 +1,5 @@
 import { describe, test } from 'vitest'
+
 import { InvalidNameError, Name } from '#src/register-student/domain/name'
 
 describe('Unit Tests for Name', () => {

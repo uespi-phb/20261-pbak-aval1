@@ -1,6 +1,7 @@
 import { describe, test, beforeAll } from 'vitest'
 import { mock } from 'vitest-mock-extended'
 import type { MockProxy } from 'vitest-mock-extended'
+
 import { RegisterStudentUseCase } from '#src/register-student/application/register-student-use-case'
 import type { LoadStudentByEmail } from '#src/register-student/application/load-student-by-email'
 import type { LoadStudentByRegistrationNumber } from '#src/register-student/application/load-student-by-registration-number'

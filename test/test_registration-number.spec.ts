@@ -1,4 +1,5 @@
 import { describe, test } from 'vitest'
+
 import { RegistrationNumber } from '#src/register-student/domain/registration-number'
 
 describe('Unit Tests for RegistrationNumber', () => {
@@ -11,6 +12,6 @@ describe('Unit Tests for RegistrationNumber', () => {
 
     const result = RegistrationNumber.create(validDigits)
 
-    expect(result).toEqual(expectedResult)
+    expect(result).toStrictEqual(expectedResult)
   })
 })
